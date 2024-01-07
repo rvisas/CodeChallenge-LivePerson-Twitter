@@ -1,0 +1,13 @@
+<div>
+      <mat-form-field class="example-user-input">
+          <input matInput [(ngModel)]="searchQuery" placeholder="Enter search text" required>
+        </mat-form-field>
+      
+        <mat-form-field class="example-user-input">
+            <input matInput [(ngModel)]="count" type="number" min="1" placeholder="Maximum No. of tweets" required>
+        </mat-form-field>
+
+  <button mat-raised-button (click)="searchText(searchQuery,count)">Search
+    <mat-icon aria-hidden="false" aria-label="Example search icon">search</mat-icon>
+  </button>
+</div>

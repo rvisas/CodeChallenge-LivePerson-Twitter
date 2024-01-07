@@ -1,0 +1,56 @@
+<div class="content">
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource"  matSort>
+
+  
+    <ng-container matColumnDef="searchText">
+        <th mat-header-cell *matHeaderCellDef> SearchText </th>
+        <td mat-cell *matCellDef="let element"> {{element.searchText}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> TweetId </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef> User </th>
+      <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="content">
+      <th mat-header-cell *matHeaderCellDef> Content </th>
+      <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdOn">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="createdOn"> TweetedOn </th>
+      <!--<td mat-cell *matCellDef="let element"> {{element.createdOn.substring(0,10)}} </td>-->
+      <td mat-cell *matCellDef="let element"> {{element.createdOn}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="language">
+        <th mat-header-cell *matHeaderCellDef> Language </th>
+        <td mat-cell *matCellDef="let element"> {{element.language}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="reTweets">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header="reTweets"> ReTweets </th>
+        <td mat-cell *matCellDef="let element"> {{element.reTweets}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
